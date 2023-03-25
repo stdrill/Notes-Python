@@ -44,7 +44,7 @@ def edit_note():
 
 def read_notes_filter():
     from_date = datetime.datetime.strptime(
-        input('Введите дату/время в формате ГГГГ-ММ-ДД ЧЧ:ММ (например, 2022-01-01 12:00): '), '%Y-%m-%d %H:%M')
+        input('Введите дату/время в формате ГГГГ-ММ-ДД ЧЧ:ММ: '), '%Y-%m-%d %H:%M')
     notes = m.read_notes()
     notes_filter = [note for note in notes if datetime.datetime.strptime(note['created_at'], '%Y-%m-%d %H:%M:%S')
                     >= from_date or note['updated_at'] and datetime.datetime.strptime(note['updated_at'], '%Y-%m-%d %H:%M:%S') >= from_date]

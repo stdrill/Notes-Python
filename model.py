@@ -1,7 +1,5 @@
 import csv
 
-# запись заметок в файл
-
 
 def write_notes(notes):
     with open('notes.csv','w',newline='') as f:
@@ -18,5 +16,7 @@ def read_notes():
         for row in reader:
             row['id'] = int(row['id'])
             notes.append(row)
+        if not notes:
+            print("Список пуст")
     return notes
 
